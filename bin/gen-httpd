@@ -7,7 +7,7 @@ if [ ${EUID:-${UID}} != 0 ]; then
     exit 1
 fi
 
-DIR=$(dirname $(cd $(dirname $0);pwd))
+DIR=$(dirname $(cd $(dirname "${BASH_SOURCE:-$0}");pwd))
 
 source $DIR/lib/func.sh
 

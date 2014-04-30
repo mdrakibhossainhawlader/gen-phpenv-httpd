@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ ${EUID:-${UID}} != 0 ]; then
+    echo 'Requires root privileges.'
+    exit 1
+fi
+
+if [ "$PHPENV_ROOT" == "" ] ; then
+   echo "PHPENV_ROOT is required."
+   exit 1
+fi
+
+DIR=$(dirname $(cd $(dirname $0);pwd))
+PHP_VERSION=$(php --version | awk 'NR == 1 {print $2}')
+HTTPD=/etc/init.d/httpd_php$PHP_VERSION
+
+cp /$DIR/template/httpd.tmpl $HTTPD
+
+sed -i "" -e "s|__PHP_VERSION__|$PHP_VERSION|" $HTTPD
+sed -i "" -e "s|__PHPENV_ROOT__|$PHPENV_ROOT|" $HTTPD

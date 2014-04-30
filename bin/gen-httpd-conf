@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+DIR=$(dirname $(cd $(dirname $0);pwd))
+
+source $DIR/lib/func.sh
+
+HTTPD_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/httpd.conf
+
+_cp /$DIR/template/httpd.conf.tmpl $HTTPD_CONF
+
+replace_php_version $HTTPD_CONF
+replace_phpenv_root $HTTPD_CONF

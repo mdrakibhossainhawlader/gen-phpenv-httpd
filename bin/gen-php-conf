@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+DIR=$(dirname $(cd $(dirname $0);pwd))
+
+source $DIR/lib/func.sh
+
+PHP_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/php.conf
+
+_cp /$DIR/template/php.conf.tmpl $PHP_CONF
+
+replace_php_version $PHP_CONF
+replace_phpenv_root $PHP_CONF

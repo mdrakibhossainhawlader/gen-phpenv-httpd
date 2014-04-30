@@ -3,10 +3,10 @@
 # easy for developers to write dynamically generated webpages.
 #
 <IfModule prefork.c>
-  LoadModule php5_module __PHPENV_ROOT__/versions/__PHP_VERSION__/lib/libphp5.so
+  LoadModule php5_module __PHPENV_ROOT__/versions/__PHP_VERSION__/libexec/libphp5.so
 </IfModule>
 <IfModule !prefork.c>
-  LoadModule php5_module __PHPENV_ROOT__/versions/__PHP_VERSION__/lib/libphp5-zts.so
+  LoadModule php5_module __PHPENV_ROOT__/versions/__PHP_VERSION__/libexec/libphp5-zts.so
 </IfModule>
 
 

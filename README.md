@@ -43,3 +43,18 @@ PHPENV_ROOT=$HOME/.phpenv ./bin/gen-httpd-conf
 export PHPENV_ROOT=/path/to/.phpenv
 ./bin/gen-php-conf
 ~~~~
+
+## zsh
+
+Modify lib/func.sh
+
+~~~~
+./lib/func.sh
+
+-#. $HOME/.zshrc
++. $HOME/.zshrc
+-. $HOME/.bash_profile
++#. $HOME/.bash_profile
+-. $HOME/.bashrc
++#. $HOME/.bashrc
+~~~~

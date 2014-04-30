@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## zsh
+#. $HOME/.zshrc
 . $HOME/.bash_profile
 . $HOME/.bashrc
 
@@ -10,8 +12,13 @@ fi
 
 PHP_VERSION=$(php --version | awk 'NR == 1 {print $2}')
 
+is_bsd() {
+    man sed | grep BSD > /dev/null
+    echo $?
+}
+
 replace_php_version() {
-    if [ is_bsd = 0 ]; then
+    if [ $(is_bsd) -eq 0 ]; then
         sed -i "" -e "s|__PHP_VERSION__|$PHP_VERSION|g" $1
     else
         sed -i -e "s|__PHP_VERSION__|$PHP_VERSION|g" $1
@@ -19,7 +26,7 @@ replace_php_version() {
 }
 
 replace_phpenv_root() {
-    if [ is_bsd = 0 ]; then
+    if [ $(is_bsd) -eq 0 ]; then
         sed -i "" -e "s|__PHPENV_ROOT__|$PHPENV_ROOT|g" $1
     else
         sed -i -e "s|__PHPENV_ROOT__|$PHPENV_ROOT|g" $1
@@ -32,9 +39,4 @@ _cp() {
     fi
 
     cp $1 $2
-}
-
-is_bsd() {
-    man sed | col | grep BSD
-    echo $?
 }

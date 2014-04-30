@@ -6,8 +6,9 @@ DIR=$(dirname $(cd $(dirname $0);pwd))
 
 source $DIR/lib/func.sh
 
-HTTPD_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/httpd.conf
+HTTPD_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/httpd/httpd.conf
 
+create_dir $HTTPD_CONF
 _cp /$DIR/template/httpd.conf.tmpl $HTTPD_CONF
 
 replace_php_version $HTTPD_CONF

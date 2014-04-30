@@ -17,6 +17,10 @@ is_bsd() {
     echo $?
 }
 
+create_dir() {
+    mkdir -p $(dirname "$1")
+}
+
 replace_php_version() {
     if [ $(is_bsd) -eq 0 ]; then
         sed -i "" -e "s|__PHP_VERSION__|$PHP_VERSION|g" $1

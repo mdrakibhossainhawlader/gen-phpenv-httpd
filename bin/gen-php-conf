@@ -6,8 +6,9 @@ DIR=$(dirname $(cd $(dirname $0);pwd))
 
 source $DIR/lib/func.sh
 
-PHP_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/php.conf
+PHP_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/httpd/php.conf
 
+create_dir $PHP_CONF
 _cp /$DIR/template/php.conf.tmpl $PHP_CONF
 
 replace_php_version $PHP_CONF

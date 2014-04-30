@@ -14,6 +14,7 @@ source $DIR/lib/func.sh
 HTTPD=/etc/init.d/httpd_php$PHP_VERSION
 
 _cp /$DIR/template/httpd.tmpl $HTTPD
+chmod +x $HTTPD
 
 replace_php_version $HTTPD
 replace_phpenv_root $HTTPD

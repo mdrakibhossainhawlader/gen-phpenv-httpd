@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+DIR=$(dirname $(cd $(dirname "${BASH_SOURCE:-$0}");pwd))
+
+source $DIR/lib/func.sh
+
+PHP_FPM_CONF=$PHPENV_ROOT/versions/$PHP_VERSION/etc/php-fpm.conf
+
+create_dir $PHP_FPM_CONF
+_cp /$DIR/template/php-fpm.conf.tmpl $PHP_FPM_CONF
+
+replace_php_version $PHP_FPM_CONF
+replace_phpenv_root $PHP_FPM_CONF

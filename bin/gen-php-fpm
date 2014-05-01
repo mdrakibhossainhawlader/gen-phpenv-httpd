@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -e
+
+if [ ${EUID:-${UID}} != 0 ]; then
+    echo 'Requires root privileges.'
+    exit 1
+fi
+
+DIR=$(dirname $(cd $(dirname "${BASH_SOURCE:-$0}");pwd))
+
+source $DIR/lib/func.sh
+
+PHP_FPM=/etc/init.d/php-fpm$PHP_VERSION
+
+_cp /$DIR/template/php-fpm.tmpl $PHP_FPM
+chmod +x $PHP_FPM
+
+replace_php_version $PHP_FPM
+replace_phpenv_root $PHP_FPM

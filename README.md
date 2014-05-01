@@ -44,6 +44,19 @@ export PHPENV_ROOT=/path/to/.phpenv
 ./bin/gen-php-conf
 ~~~~
 
+## gen-php-fpm
+
+Generate httpd startup script.
+
+~~~~
+sudo PHPENV_ROOT=$HOME/.phpenv ./bin/gen-php-fpm
+~~~~
+
+~~~~
+export PHPENV_ROOT=/path/to/.phpenv
+sudo ./bin/gen-php-fpm
+~~~~
+
 ## zsh
 
 Modify lib/func.sh

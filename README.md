@@ -31,12 +31,12 @@ export PHPENV_ROOT=/path/to/.phpenv
 ./bin/gen-httpd-conf
 ~~~~
 
-## gen-httpd-conf
+## gen-php-conf
 
 Generate php.conf.
 
 ~~~~
-PHPENV_ROOT=$HOME/.phpenv ./bin/gen-httpd-conf
+PHPENV_ROOT=$HOME/.phpenv ./bin/gen-php-conf
 ~~~~
 
 ~~~~
@@ -46,7 +46,7 @@ export PHPENV_ROOT=/path/to/.phpenv
 
 ## gen-php-fpm
 
-Generate httpd startup script.
+Generate php-fpm startup script.
 
 ~~~~
 sudo PHPENV_ROOT=$HOME/.phpenv ./bin/gen-php-fpm
@@ -55,6 +55,19 @@ sudo PHPENV_ROOT=$HOME/.phpenv ./bin/gen-php-fpm
 ~~~~
 export PHPENV_ROOT=/path/to/.phpenv
 sudo ./bin/gen-php-fpm
+~~~~
+
+## gen-php-fpm-conf
+
+Generate php-fpm.conf.
+
+~~~~
+PHPENV_ROOT=$HOME/.phpenv ./bin/gen-php-fpm-conf
+~~~~
+
+~~~~
+export PHPENV_ROOT=/path/to/.phpenv
+./bin/gen-php-fpm-conf
 ~~~~
 
 ## zsh
